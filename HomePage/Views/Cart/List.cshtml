@@ -1,0 +1,38 @@
+﻿
+@model CartSummaryViewModel
+<h2>Your Cart</h2>
+<table class="border table-bordered">
+    <thead>
+        <tr>
+
+            <th>Product Name</th>
+            <th>Stock </th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Category Id</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <tbody>
+            <tr>
+
+                <td>@item.Product.ProductName</td>
+                <td>@item.Product.Quantity</td>
+                <td>@item.Product.Price</td>
+                <td>@item.Product.CreatedTime</td>
+                <td>@item.Product.CategoryId</td>
+
+                <td><a class="btn  btn-danger" asp-action="SepettenSil" asp-controller="Cart" asp-route-ProductId="@item.Product.Id">Sepetten Sil</a></td>
+
+            </tr>
+
+
+        </tbody>
+
+    }
+
+</table>
+<h3>Total</h3>
+<h3><strong>@Model.Cart.Total TL</strong></h3>
+
