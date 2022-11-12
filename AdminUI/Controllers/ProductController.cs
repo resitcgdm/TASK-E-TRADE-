@@ -79,8 +79,8 @@ namespace AdminUI.Controllers
 
             return View();
         }
-        [HttpGet]
-        [Authorize(Roles ="Admin")]
+       
+        [Authorize(Roles  = "Admin")]
         public IActionResult List()
         {
             var result = _productService.GetAll();

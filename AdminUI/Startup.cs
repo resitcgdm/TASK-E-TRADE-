@@ -45,11 +45,11 @@ namespace AdminUI
                   }
               );
             services.AddAuthenticationCore();
-            //services.AddHttpContextAccessor();
+            services.AddHttpContextAccessor();//Önemli Authorizationda!Veritabanýn daki roll sütununu gösteriyor,ulasmamýzý saglýyor!
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Admin",
-                     policy => policy.RequireRole("Admin"));
+                options.AddPolicy("User",
+                     policy => policy.RequireRole("User"));
             });
            
 
@@ -73,7 +73,7 @@ namespace AdminUI
 
             app.UseRouting();
             app.UseSession();
-
+            app.UseAuthentication();//Authorization olmasý icin bunu da eklememiz gerek!
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
