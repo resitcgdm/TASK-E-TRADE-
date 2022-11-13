@@ -496,8 +496,8 @@
 <section class="team-section section">
   <div class="container">
     <div class="section-title text-center">
-      <h3>Our Expert
-        <span>Doctors</span>
+      <h3>Our Products
+        
       </h3>
       <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illo, rerum
         <br>natus nobis deleniti doloremque minima odit voluptatibus ipsam animi?</p>
@@ -508,13 +508,16 @@
                 @foreach (var item in Model)
                 {
         <div class="team-member">
-          <img loading="lazy" src="images/team/doctor-2.jpg" alt="doctor" class="img-fluid">
+         
           <div class="contents text-center">
-            <h4>Name of Product:@item.ProductName</h4>
-                            <p class="bg-success">Price Of Product: <span class="badge bg-info">@item.Price TL</span></p>
-            <p>Quantity of Product:@item.Quantity </p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, aspernatur.</p>
-                            <a class="btn btn-success" asp-action="SepeteEkle" asp-controller="Cart" asp-route-productId="@item.Id">Add to Cart</a>
+                            <h2 class="text-gray font-weight-bolder">@item.ProductName</h2>
+                            <p >Price Of Product: <span class="font-weight-bold color-black">@item.Price TL</span></p>
+                            <p >Quantity of Product:<span class="font-weight-bold text-color-black" >@item.Quantity</span> </p>
+
+                            <a class="btn" asp-action="SepeteEkle" asp-controller="Cart" asp-route-productId="@item.Id">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="rgb(72, 189, 197)" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg></a>
           </div>
         </div>
         }
