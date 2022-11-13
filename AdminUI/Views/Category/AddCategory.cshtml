@@ -1,10 +1,9 @@
 ﻿@using Entities.Concrete
 @model List<Category>
-<div class="col-md-6 grid-margin stretch-card">
-    <div class="card">
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card " style="border:none !important;">
         <div class="card-body">
-            <h4 class="card-title">Default form</h4>
-            <p class="card-description"> Basic form layout </p>
+           
             <form class="forms-sample" method="post" asp-action="AddCategory" asp-controller="Category">
                 <div class="form-group">
                     <label for="cate">Category Name</label>

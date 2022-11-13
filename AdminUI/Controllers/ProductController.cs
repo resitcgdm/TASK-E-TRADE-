@@ -1,15 +1,17 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Linq;
 
 namespace AdminUI.Controllers
 {
     public class ProductController : Controller
-    {
+    { Context contex = new Context();
         IProductService _productService;
         public ProductController(IProductService productService)
         {
@@ -55,9 +57,9 @@ namespace AdminUI.Controllers
             _productService.Delete(product);
             return View();
         }
-        public IActionResult UpdateProduct()
-        {
-            return View();
+        public IActionResult UpdateProduct(int id)
+        {   var result=contex.Products.FirstOrDefault(x=>x.Id==id); 
+            return View(result);
         }
         [HttpPost]
         public IActionResult UpdateProduct(Product product)

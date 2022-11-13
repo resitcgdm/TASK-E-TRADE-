@@ -1,17 +1,19 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace AdminUI.Controllers
 {
     public class CategoryController : Controller
     {
-        
+        Context context = new Context();
         ICategoryService _categoryService;
         public CategoryController(ICategoryService categoryService)
         {
@@ -62,9 +64,12 @@ namespace AdminUI.Controllers
             _categoryService.Delete(category);
             return RedirectToAction("ListCategory");
         }
-        public IActionResult UpdateCategory()
+        [HttpGet]
+    
+        public IActionResult UpdateCategory(int id)
         {
-            return View();
+            var result = context.Categories.FirstOrDefault(x => x.CategoryId == id);
+            return View(result);
         }
         [HttpPost]
         public IActionResult UpdateCategory(Category category)

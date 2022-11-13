@@ -1,13 +1,13 @@
-﻿
-<div class="col-md-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Default form</h4>
-            <p class="card-description"> Basic form layout </p>
+﻿@using Entities.Concrete
+@model Category
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card " style="border:none !important;">
+        <div class="card-body ">
+           
             <form class="forms-sample" method="post" asp-action="UpdateCategory" asp-controller="Category">
-                <div class="form-group">
+                <div class="form-group" style="display:none;" >
                     <label for="cat">Category Id</label>
-                    <input name="CategoryId" type="text" class="form-control" id="cat" placeholder="Id">
+                    <input readonly asp-for="CategoryId" type="text" class="form-control" id="cat" placeholder="Id">
                 </div>
                 <div class="form-group">
                     <label for="cat">Category Name</label>

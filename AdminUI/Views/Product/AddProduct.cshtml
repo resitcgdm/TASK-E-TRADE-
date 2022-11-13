@@ -1,9 +1,10 @@
-﻿
-<div class="col-md-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Default form</h4>
-            <p class="card-description"> Basic form layout </p>
+﻿@{
+    Layout = "_Layout";
+}
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card " style="border:none !important;">
+        <div class="card-body ">
+        
             <form class="forms-sample" method="post" asp-action="AddProduct" asp-controller="Product">
                 <div class="form-group">
                     <label for="prod">Product Name</label>
