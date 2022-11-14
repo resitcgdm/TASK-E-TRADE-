@@ -14,7 +14,7 @@
                    
                     <div class="table-responsive">
                         <table class="table">
-                            <thead>
+                            <thead class="font-weight-bolder bg-secondary " >
                                 <tr>
                                     <th>Id  </th>
                                     <th>CategoryName</th>
@@ -27,8 +27,10 @@
                                 <tr>
                                     <td>@item.CategoryId</td>
                                     <td>@item.CategoryName</td>
-                                                    <td><a class="btn btn-danger" asp-action="DeleteCategoryById" asp-controller="Category" asp-route-id="@item.CategoryId">Sil</a></td>
-                                                    <td><a class="btn btn-warning" asp-action="UpdateCategory" asp-controller="Category" asp-route-id="@item.CategoryId">Update</a></td>
+
+                                        <td>
+                                            <a class="btn btn-danger" asp-action="DeleteCategoryById" asp-controller="Category" asp-route-id="@item.CategoryId">Delete</a>
+                                                        <a class="btn btn-warning" asp-action="UpdateCategory" asp-controller="Category" asp-route-id="@item.CategoryId">Update</a></td>
                                                    
                                      
                                     

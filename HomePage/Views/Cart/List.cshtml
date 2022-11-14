@@ -1,6 +1,7 @@
 ﻿
 @model CartSummaryViewModel
 <h2>Your Cart</h2>
+
 <table class="border table-bordered">
     <thead>
         <tr>
@@ -23,16 +24,23 @@
                 <td>@item.Product.CreatedTime</td>
                 <td>@item.Product.CategoryId</td>
 
-                <td><a class="btn  btn-danger" asp-action="SepettenSil" asp-controller="Cart" asp-route-ProductId="@item.Product.Id">Sepetten Sil</a></td>
+                <td>
+                   
+                    <a class="btn  btn-danger" asp-action="SepettenSil" asp-controller="Cart" asp-route-ProductId="@item.Product.Id">Delete from Cart</a></td>
+              
 
             </tr>
 
 
         </tbody>
+        }
 
-    }
+   
 
 </table>
+
+ <a class="btn  btn-success" asp-action="Index" asp-controller="Home" >Keep going to Buy</a>
 <h3>Total</h3>
 <h3><strong>@Model.Cart.Total TL</strong></h3>
+
 

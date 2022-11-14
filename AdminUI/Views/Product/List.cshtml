@@ -1,119 +1,65 @@
-﻿@using Entities.Concrete
-@model List<Product>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin Panel(E-TRADE)</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="~/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="~/assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="~/assets/images/favicon.png" />
-  </head>
-  <body>
- @*   <div class="container-scroller">
-     
-        <div class="main-panel">*@
-    <div class="content-wrapper p-4">
-            
-                <div class="row" style="display:flex !important;flex-direction: column !important">
-              <div class="col-xs-12  stretch-card">
-                <div class="card" style="border:none !important;">
-                  <div class="card-body">
+﻿
 
-                        <div class="table-responsive" >
-                            <table class="table" ">
-                        <thead>
-                          <tr>
-                            <th>ProductId</th>
-                            <th>ProductName.</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                             <th>CreatedDate</th>
-                            <th>CategoryId</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        @foreach(var item in Model) {
-                        <tbody>
-                          <tr>
-                            <td>@item.Id</td>
-                            <td>@item.ProductName</td>
-                            <td>@item.Price</td>
-                            <td>@item.Quantity</td>
-                       <td><label class="badge badge-danger">@item.CreatedTime</label></td>
-                         <td>@item.CategoryId</td>
-                                                    <td><a class="btn btn-primary"href="~/Product/DeleteById/@item.Id">Sil</a></td>
-                                                    <td><a class="btn btn-primary" href="~/Product/UpdateProduct/@item.Id">Update</a></td>
-                                                   
-                          </tr>
-                        @*  <tr>
-                            <td>Messsy</td>
-                            <td>53275532</td>
-                            <td>15 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>53275533</td>
-                            <td>14 May 2017</td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>53275534</td>
-                            <td>16 May 2017</td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td>20 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>*@
-                        </tbody>
-                                            }
-                      </table>
+@using Entities.Concrete
+@model List<Product>
+
+
+@*   <div class="container-scroller">*@
+
+
+<div class="content-wrapper p-4">
+
+    <div class="row  p-0">
+        <div class="col-lg-12  stretch-card">
+            <div class="card p-0" style="border:none !important;">
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="font-weight-bolder bg-secondary">
+                                <tr>
+                                    <th>Id  </th>
+                                    <th>ProductName</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>CreatedTime</th>
+                                    <th>CategoryId</th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.ProductName</td>
+                                       
+                                        <td>@item.Price</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.CreatedTime</td>
+                                        <td>@item.CategoryId</td>
+
+                                        <td>
+                                            <a class="btn btn-danger" asp-action="DeleteById" asp-controller="Product" asp-route-id="@item.Id">Delete</a>
+                                            <a class="btn btn-warning" asp-action="UpdateProduct" asp-controller="Product" asp-route-id="@item.Id">Update</a>
+                                        </td>
+
+
+
+                                    </tr>
+
+                                </tbody>
+                            }
+                        </table>
                     </div>
-                  </div>
                 </div>
-              </div>
-             
             </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-         
-          <!-- partial -->
-        
-        <!-- main-panel ends -->
-   
-      <!-- page-body-wrapper ends -->
-    
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="~/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="~/assets/js/off-canvas.js"></script>
-    <script src="~/assets/js/hoverable-collapse.js"></script>
-    <script src="~/assets/js/misc.js"></script>
-    <script src="~/assets/js/settings.js"></script>
-    <script src="~/assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
-  </body>
-</html>
+        </div>
+
+
+
+
+    </div>
+</div>
+

@@ -1,10 +1,11 @@
-﻿@{
+﻿
+@{
     Layout = "_Layout";
 }
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card " style="border:none !important;">
         <div class="card-body ">
-        
+
             <form class="forms-sample" method="post" asp-action="AddProduct" asp-controller="Product">
                 <div class="form-group">
                     <label for="prod">Product Name</label>
@@ -31,9 +32,45 @@
                         <input type="checkbox" class="form-check-input"> Remember me
                     </label>
                 </div>
-                <button  class="btn btn-primary mr-2 ">Submit</button>
-                <button class="btn btn-dark">Cancel</button>
+                <button class="btn btn-primary mr-2 ">Submit</button>
+                
             </form>
         </div>
     </div>
 </div>
+
+    @*        @section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+  $(document).ready(function() {
+  $('#summernote').summernote();
+});
+
+     function kaydet() {
+       
+        var category = document.getElementById("Categories");
+       
+        var form = document.getElementById("form");
+
+       var formData = new FormData(form);
+
+        formData.append("title", title.value);
+        formData.append("subtitle", subtitle.value);
+        formData.append("content", content);
+        formData.append("categoryid",category.value);
+        formData.append("tagid",tag.value);
+
+        var url = '/Note/Save';
+
+        fetch(url, {
+                method: 'POST',
+                body: formData
+            }).then(res => res.json())
+            .then(result => {
+                alert("YOUR NOTE IS SUCCESSFULLY SAVED!");
+            })
+    }
+
+    </script>
+            }*@
+ 

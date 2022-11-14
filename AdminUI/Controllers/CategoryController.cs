@@ -91,9 +91,9 @@ namespace AdminUI.Controllers
             }
             return View();
         }
-           
-            
-        
+
+
+        [Authorize(Roles = "Admin")]
         [HttpGet] 
         public IActionResult ListCategory()
         {

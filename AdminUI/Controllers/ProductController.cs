@@ -5,6 +5,8 @@ using Entities.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Linq;
 
@@ -20,17 +22,25 @@ namespace AdminUI.Controllers
 
         public IActionResult AddProduct()
         {
+         
+            //ViewBag.Categories = contex.Categories.Select(w =>
+            //new SelectListItem
+            //{
+            //    Text = w.CategoryName,
+            //    Value = w.CategoryId.ToString()
+            //}
+            //).ToList();
             return View();
         }
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
-
+           
             ProductValidation productValid = new ProductValidation();
             ValidationResult results = productValid.Validate(product);
             if(results.IsValid)
             {
-                _productService.Add(product);
+                  _productService.Add(product); 
                 return View();
                 
 
@@ -47,6 +57,7 @@ namespace AdminUI.Controllers
 
 
         }
+        [HttpGet]
         public IActionResult DeleteProduct()
         {
             return View();
@@ -57,6 +68,7 @@ namespace AdminUI.Controllers
             _productService.Delete(product);
             return View();
         }
+        [HttpGet]
         public IActionResult UpdateProduct(int id)
         {   var result=contex.Products.FirstOrDefault(x=>x.Id==id); 
             return View(result);
@@ -81,8 +93,8 @@ namespace AdminUI.Controllers
 
             return View();
         }
-       
-        [Authorize(Roles  = "Admin")]
+
+        [Authorize(Roles =  "Admin")]
         public IActionResult List()
         {
             var result = _productService.GetAll();

@@ -13,8 +13,8 @@ namespace Business.ValidationRules
         public ProductValidation()
         {
             RuleFor(x => x.ProductName).NotNull().NotEmpty().WithMessage("Ürün adı Boş geçilemez!").WithMessage("Ürün adı Boş geçilemez!").
-              MinimumLength(3).WithMessage("Ürün adı en az 3 karaktere sahip olmalı!").
-              MaximumLength(15).WithMessage("Ürün adı en fazla 15 karaktere sahip olmalı");
+              MinimumLength(1).WithMessage("Ürün adı en az 1 karaktere sahip olmalı!").
+              MaximumLength(35).WithMessage("Ürün adı en fazla 35 karaktere sahip olmalı");
 
         }
     }

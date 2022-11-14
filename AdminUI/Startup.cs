@@ -48,7 +48,7 @@ namespace AdminUI
             services.AddHttpContextAccessor();//Önemli Authorizationda!Veritabanýn daki roll sütununu gösteriyor,ulasmamýzý saglýyor!
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("User",
+                options.AddPolicy("SadeceAdminGormeli",
                      policy => policy.RequireRole("User"));
             });
            
